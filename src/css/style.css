@@ -267,8 +267,8 @@ footer {
   position: absolute;
   top: 9px;
   right: 0;
-  background-color: var(--primary-color); 
-  color: var(--dark-grey); 
+  background-color: var(--primary-color);
+  color: var(--dark-grey);
   font-size: 0.7rem;
   font-weight: bold;
   padding: 1px 5px;

@@ -19,5 +19,5 @@ async function addToCartHandler(e) {
 document
   .getElementById("addToCart")
   .addEventListener("click", addToCartHandler);
-  
+
 updateCartCount(); // <-- ADD THIS (to run on page load)
