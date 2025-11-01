@@ -261,3 +261,24 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+/* Cart count superscript */
+.cart-count {
+  position: absolute;
+  top: 9px;
+  right: 0;
+  background-color: var(--primary-color); 
+  color: var(--dark-grey); 
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 1px 5px;
+  border-radius: 50%;
+  min-width: 18px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Hide the circle if it's empty */
+.cart-count:empty {
+  display: none;
+}
