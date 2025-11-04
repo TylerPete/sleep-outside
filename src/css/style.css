@@ -261,3 +261,35 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+
+/* Cart Total Footer */
+.cart-footer {
+  padding: 1rem;
+  border-top: 2px solid var(--primary-color);
+  margin-top: 1rem;
+  text-align: right;
+}
+
+.cart-total {
+  font-size: var(--large-font);
+  font-weight: bold;
+}
+
+.checkout-btn {
+  /* Re-using button styles but as a link */
+  padding: 0.5em 2em;
+  background-color: var(--secondary-color);
+  color: white;
+  margin-top: 1rem;
+  display: inline-block;
+  border: 0;
+  font-size: var(--large-font);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Class to hide elements */
+.hide {
+  display: none;
+}
