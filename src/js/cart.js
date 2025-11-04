@@ -3,7 +3,7 @@ import { getLocalStorage } from "./utils.mjs";
 function renderCartContents() {
   // 1. FIX: Get cart items or an empty array if cart is null
   const cartItems = getLocalStorage("so-cart") || [];
-  
+
   const productList = document.querySelector(".product-list");
   const cartFooter = document.querySelector(".cart-footer");
   const cartTotalElement = document.querySelector(".cart-total");
@@ -16,12 +16,9 @@ function renderCartContents() {
     // 3. If cart has items, render them
     const htmlItems = cartItems.map((item) => cartItemTemplate(item));
     productList.innerHTML = htmlItems.join("");
-    
+
     // 4. Calculate total and show footer
-    const total = cartItems.reduce(
-      (sum, item) => sum + item.FinalPrice,
-      0,
-    );
+    const total = cartItems.reduce((sum, item) => sum + item.FinalPrice, 0);
     cartTotalElement.textContent = `Total: $${total.toFixed(2)}`;
     cartFooter.classList.remove("hide");
   }
