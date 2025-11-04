@@ -110,6 +110,10 @@ button {
   cursor: pointer;
 }
 
+#addToCart:hover {
+  opacity: 0.9;
+}
+
 .divider {
   border-bottom: 2px solid var(--primary-color);
 }
