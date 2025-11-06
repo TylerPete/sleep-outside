@@ -37,7 +37,6 @@ addProductToCart() {
     const productHtml = productDetailsTemplate(this.product);
     
     // 2. Find the parent container to put the details in
-    //    (Assuming your HTML has a <main> tag)
     const parentElement = qs("main");
 
     // 3. Inject the HTML into the parent
