@@ -294,6 +294,9 @@ footer {
 
 /* Class to hide elements */
 .hide {
+  display: none;
+}
+
 /* Cart count superscript */
 .cart-count {
   position: absolute;
