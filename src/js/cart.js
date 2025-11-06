@@ -1,4 +1,4 @@
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, updateCartCount } from "./utils.mjs";
 
 function renderCartContents() {
   // 1. FIX: Get cart items or an empty array if cart is null
@@ -44,3 +44,4 @@ function cartItemTemplate(item) {
 }
 
 renderCartContents();
+updateCartCount();
