@@ -90,7 +90,7 @@ p {
   margin-top: -1.3em;
 }
 
-.logo--square > div {
+.logo--square>div {
   margin-top: -1.7em;
 }
 
@@ -316,4 +316,23 @@ footer {
 /* Hide the circle if it's empty */
 .cart-count:empty {
   display: none;
+}
+
+/* Product Card */
+.product-card {
+  position: relative;
+}
+
+/* Discount Badge*/
+.discount-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #ff4d4d;
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.85em;
+  z-index: 10;
 }
