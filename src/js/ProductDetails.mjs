@@ -34,6 +34,7 @@ addProductToCart() {
    */
   renderProductDetails() {
     // 1. Get the HTML string from our template function
+    console.log(this.product);
     const productHtml = productDetailsTemplate(this.product);
     
     // 2. Find the parent container to put the details in
