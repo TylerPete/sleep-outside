@@ -25,7 +25,7 @@ export function setClick(selector, callback) {
 export function updateCartCount() {
   // Get cart items from localStorage, or an empty array if the cart is null
   const cartItems = getLocalStorage("so-cart") || [];
-  
+
   // Find the .cart-count element
   const cartCountElement = qs(".cart-count");
 
