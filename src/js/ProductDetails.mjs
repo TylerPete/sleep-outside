@@ -1,5 +1,4 @@
-import { setLocalStorage, getLocalStorage, updateCartCount, qs } from "./utils.mjs";
-
+import {setLocalStorage,getLocalStorage,updateCartCount,qs} from "./utils.mjs";
 
 export default class ProductDetails {
   constructor(productId, dataSource) {
@@ -8,16 +7,15 @@ export default class ProductDetails {
     this.dataSource = dataSource;
   }
 
-
   async init() {
-
     // use the datasource to get the details for the current product. findProductById will return a promise! use await or .then() to process it
     this.product = await this.dataSource.findProductById(this.productId);
     // the product details are needed before rendering the HTML
     this.renderProductDetails();
     // once the HTML is rendered, add a listener to the Add to Cart button
     // Notice the .bind(this). This callback will not work if the bind(this) is missing. Review the readings from this week on 'this' to understand why.
-    document.getElementById("addToCart")
+    document
+      .getElementById("addToCart")
       .addEventListener("click", this.addProductToCart.bind(this));
   }
 
@@ -29,12 +27,11 @@ export default class ProductDetails {
   }
 
   /**
-     * RENDER METHOD:
-     * Finds the parent element and inserts the HTML template.
-     */
+   * RENDER METHOD:
+   * Finds the parent element and inserts the HTML template.
+   */
   renderProductDetails() {
     // 1. Get the HTML string from our template function
-    console.log(this.product);
     const productHtml = productDetailsTemplate(this.product);
 
     // 2. Find the parent container to put the details in
@@ -50,6 +47,24 @@ export default class ProductDetails {
  * This function now just returns an HTML string.
  */
 function productDetailsTemplate(product) {
+  let priceHtml = "";
+
+  if (product.SuggestedRetailPrice > product.FinalPrice) {
+    priceHtml = `
+   <span class="product-card__price--original">
+    $${product.SuggestedRetailPrice}
+   </span>
+   <span class="product-card__price--final">
+    $${product.FinalPrice}
+   </span>
+ `;
+  } else {
+    priceHtml = `
+   <span class="product-card__price--final">
+    $${product.FinalPrice}
+   </span>
+  `;
+  }
   return `
     <section class="product-detail">
         <h3 class="product-brand-name">${product.Brand.Name}</h3>
@@ -57,7 +72,7 @@ function productDetailsTemplate(product) {
         
         <img class="divider" id="productImage" src="${product.Image}" alt="${product.NameWithoutBrand}">
         
-        <p class="product-card__price" id="productPrice">$${product.FinalPrice}</p>
+        <p class="product-card__price" id="productPrice"> ${priceHtml}</p>
         <p class="product__color" id="productColor">${product.Colors[0].ColorName}</p>
         <p class="product__description" id="productDesc">
             ${product.DescriptionHtmlSimple}

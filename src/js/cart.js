@@ -4,9 +4,6 @@ function renderCartContents() {
   // 1. FIX: Get cart items or an empty array if cart is null
   const cartItems = getLocalStorage("so-cart") || [];
 
-  console.log("cartItems array from localStorage: ");
-  console.log(cartItems);
-
   const productList = document.querySelector(".product-list");
   const cartFooter = document.querySelector(".cart-footer");
   const cartTotalElement = document.querySelector(".cart-total");
@@ -21,7 +18,7 @@ function renderCartContents() {
     productList.innerHTML = htmlItems.join("");
 
     const removeButtons = document.querySelectorAll(".remove-button");
-    removeButtons.forEach(button => addRemoveListener(button));
+    removeButtons.forEach((button) => addRemoveListener(button));
 
     // 4. Calculate total and show footer
     const total = cartItems.reduce((sum, item) => sum + item.FinalPrice, 0);
@@ -32,7 +29,7 @@ function renderCartContents() {
 
 function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
-  <span class="remove-button" title="Remove from cart" data-id=${item.Id}>X</span>
+  <span class="remove-button" title="Remove from cart" data-id=${item.Id}>&times;</span>
   <a href="#" class="cart-card__image">
     <img
       src="${item.Image}"
@@ -52,17 +49,14 @@ function cartItemTemplate(item) {
 
 function addRemoveListener(buttonElement) {
   buttonElement.addEventListener("click", () => {
-
     const deletedProductId = buttonElement.getAttribute("data-id");
-    console.log(`Deleted product ID: ${deletedProductId}`);
 
     const cartItems = getLocalStorage("so-cart") || [];
-    const deleteIndex = cartItems.findIndex(element => element.Id === deletedProductId);
-    console.log(`Deleted product index: ${deleteIndex}`);
+    const deleteIndex = cartItems.findIndex(
+      (element) => element.Id === deletedProductId,
+    );
 
     cartItems.splice(deleteIndex, 1);
-    console.log('New cart array after deletion: ');
-    console.log(cartItems);
     setLocalStorage("so-cart", cartItems);
 
     updateCartCount();
