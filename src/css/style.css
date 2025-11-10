@@ -214,6 +214,7 @@ button {
   font-size: var(--small-font);
   /* max-height: 120px; */
   align-items: center;
+  position: relative;
 }
 
 .cart-card__image {
@@ -335,4 +336,22 @@ footer {
   border-radius: 5px;
   font-size: 0.85em;
   z-index: 10;
+}
+
+/* Remove from cart button */
+.remove-button {
+  text-align: center;
+  font-weight: bold;
+  padding: 5px 0;
+  background-color: var(--primary-color);
+  color: var(--dark-grey);
+  border-radius: 15px;
+  width: 30px;
+  position: absolute;
+  right: 0;
+  top: 3rem;
+}
+
+.remove-button:hover {
+  box-shadow: 3px 3px 3px black;
 }
