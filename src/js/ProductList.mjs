@@ -1,5 +1,7 @@
 import { renderListWithTemplate } from "./utils.mjs";
 
+const baseURL = import.meta.env.VITE_SERVER_URL
+
 function productCardTemplate(product) {
     const discountText = calculateDiscountPercentage(product.SuggestedRetailPrice, product.FinalPrice);
     let discountBadgeHtml = "";
@@ -8,9 +10,9 @@ function productCardTemplate(product) {
     }
 
     return `<li class="product-card">
-            <a href="product_pages/?product=${product.Id}">
+            <a href="/product_pages/?product=${product.Id}">
             ${discountBadgeHtml}
-              <img src="${product.Image}" alt="${product.Name}"/>
+              <img src="${product.Images.PrimaryMedium}" alt="${product.Name}"/>
               <h3 class="card__brand">${product.Brand.Name}</h3>
               <h2 class="card__name">${product.NameWithoutBrand}</h2>
               <p class="product-card__price">${product.FinalPrice}</p>
@@ -36,7 +38,9 @@ export default class ProductList {
     }
 
     async init() {
-        const productList = await this.dataSource.getData();
+
+        const productList = await this.dataSource.getData(this.category);
+
 
         const badIds = ["989CG", "880RT"];
 
