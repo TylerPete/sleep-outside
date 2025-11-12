@@ -444,6 +444,14 @@ footer {
   margin-bottom: 20px;
 }
 
+.category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
 .categories img{
   width: 60px;
   height: 60px;
