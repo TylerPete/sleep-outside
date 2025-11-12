@@ -28,15 +28,17 @@ function renderCartContents() {
 }
 
 function cartItemTemplate(item) {
+  const productUrl = `/product_pages/?product=${item.Id}`;
+  
   const newItem = `<li class="cart-card divider">
   <span class="remove-button" title="Remove from cart" data-id=${item.Id}>&times;</span>
-  <a href="#" class="cart-card__image">
+  <a href="${productUrl}" class="cart-card__image">
     <img
-      src="${item.Image}"
+      src="${item.Images.PrimarySmall}"
       alt="${item.Name}"
     />
   </a>
-  <a href="#">
+  <a href="${productUrl}">
     <h2 class="card__name">${item.Name}</h2>
   </a>
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
