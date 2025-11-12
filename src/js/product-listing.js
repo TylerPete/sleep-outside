@@ -1,9 +1,13 @@
-import { updateCartCount, getParam } from "./utils.mjs";
+import { updateCartCount, getParam, prettifySlug } from "./utils.mjs";
 import ProductData from "./ProductData.mjs";
 import ProductList from "./ProductList.mjs";
 
 const category = getParam("category");
 
+const titleElement = document.querySelector('h2');
+const categoryName = prettifySlug(category);
+
+titleElement.textContent = `Top Products for ${categoryName}`;
 // first create an instance of the ProductData class.
 const dataSource = new ProductData();
 

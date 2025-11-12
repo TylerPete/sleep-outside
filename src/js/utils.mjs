@@ -49,3 +49,11 @@ export function renderListWithTemplate(template, parentElement, list, position =
   }
   parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
 }
+
+export function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+export function prettifySlug(string) {
+  return string.split('-').map(capitalizeFirstLetter).join(' ');
+}
