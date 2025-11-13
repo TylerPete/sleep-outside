@@ -1,4 +1,4 @@
-import { renderListWithTemplate } from "./utils.mjs";
+import { renderListWithTemplate,  } from "./utils.mjs";
 
 function productCardTemplate(product) {
     const discountText = calculateDiscountPercentage(product.SuggestedRetailPrice, product.FinalPrice);

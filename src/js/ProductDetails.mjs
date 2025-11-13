@@ -1,4 +1,4 @@
-import {setLocalStorage,getLocalStorage,updateCartCount,qs} from "./utils.mjs";
+import { setLocalStorage, getLocalStorage, updateCartCount, qs, loadHeaderFooter } from "./utils.mjs";
 
 export default class ProductDetails {
   constructor(productId, dataSource) {
@@ -8,6 +8,10 @@ export default class ProductDetails {
   }
 
   async init() {
+    // Load dynamic header and footer templates
+    loadHeaderFooter();
+
+
     // use the datasource to get the details for the current product. findProductById will return a promise! use await or .then() to process it
     this.product = await this.dataSource.findProductById(this.productId);
     // the product details are needed before rendering the HTML
