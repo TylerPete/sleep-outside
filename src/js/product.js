@@ -17,5 +17,3 @@ product.init();
 // document
 //   .getElementById("addToCart")
 //   .addEventListener("click", addToCartHandler);
-
-updateCartCount(); // <-- ADD THIS (to run on page load)

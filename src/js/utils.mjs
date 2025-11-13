@@ -27,7 +27,7 @@ export function updateCartCount() {
   const cartItems = getLocalStorage("so-cart") || [];
 
   // Find the .cart-count element
-  const cartCountElement = qs(".cart-count");
+  const cartCountElement = qs(".cart-count",);
 
   // Set the text content.
   // If 0, it will be an empty string, and the CSS will hide it.
@@ -56,11 +56,13 @@ export function renderWithTemplate(template, parentElement, position = "afterbeg
     parentElement.innerHTML = "";
   }
 
-  parentElement.insertAdjacentHTML(position, template);
+  parentElement.innerHTML = template;
+  updateCartCount();
 
-  if (callback) {
-    callback(data);
-  }
+
+  // if (callback) {
+  //   callback(data);
+  // }
 }
 
 export async function loadTemplate(path) {

@@ -8,7 +8,6 @@ import Alert from "./Alert.js";
 loadHeaderFooter();
 
 // Run the function on page load
-updateCartCount();
 
 // Initialize alerts
 const alert = new Alert();

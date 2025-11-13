@@ -67,4 +67,3 @@ function addRemoveListener(buttonElement) {
 // Load dynamic header and footer templates
 loadHeaderFooter();
 renderCartContents();
-updateCartCount();
