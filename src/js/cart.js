@@ -1,4 +1,9 @@
-import { getLocalStorage, setLocalStorage, updateCartCount, loadHeaderFooter } from "./utils.mjs";
+import {
+  getLocalStorage,
+  setLocalStorage,
+  updateCartCount,
+  loadHeaderFooter,
+} from "./utils.mjs";
 
 function renderCartContents() {
   // 1. FIX: Get cart items or an empty array if cart is null
