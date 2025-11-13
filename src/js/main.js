@@ -1,7 +1,11 @@
-import { updateCartCount } from "./utils.mjs";
+import { updateCartCount, loadHeaderFooter } from "./utils.mjs";
 import ProductData from "./ProductData.mjs";
 import ProductList from "./ProductList.mjs";
 import Alert from "./Alert.js";
+
+
+// Load dynamic header and footer templates
+loadHeaderFooter();
 
 // Run the function on page load
 updateCartCount();
