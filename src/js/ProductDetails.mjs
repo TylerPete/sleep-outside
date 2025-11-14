@@ -35,14 +35,7 @@ export default class ProductDetails {
    * Finds the parent element and inserts the HTML template.
    */
   renderProductDetails() {
-    // 1. Get the HTML string from our template function
-    const productHtml = productDetailsTemplate(this.product);
-
-    // 2. Find the parent container to put the details in
-    const parentElement = qs("main");
-
-    // 3. Inject the HTML into the parent
-    parentElement.innerHTML = productHtml;
+    productDetailsTemplate(this.product);
   }
 }
 
@@ -51,7 +44,40 @@ export default class ProductDetails {
  * This function now just returns an HTML string.
  */
 function productDetailsTemplate(product) {
-  let priceHtml = "";
+  
+  document.querySelector("h2").textContent = product.Category.charAt(0).toUpperCase() + product.Category.slice(1);
+  document.querySelector("#p-brand").textContent = product.Brand.Name;
+  document.querySelector("#p-name").textContent = product.NameWithoutBrand;
+
+  const productImage = document.querySelector("#p-image");
+  productImage.src = product.Images.PrimaryExtraLarge;
+  productImage.alt = product.NameWithoutBrand;
+  
+  let priceHtml = document.querySelector("#p-price");
+  priceHtml.textContent = "";
+  if (product.SuggestedRetailPrice > product.FinalPrice) {
+    const suggestedSpan = document.createElement("span");
+    suggestedSpan.textContent = `$${product.SuggestedRetailPrice}`;
+    suggestedSpan.classList.add("old-price");
+    
+    const finalSpan = document.createElement("span");
+    finalSpan.classList.add("final-price");
+    finalSpan.textContent = `$${product.FinalPrice}`;
+
+    priceHtml.appendChild(suggestedSpan);
+    priceHtml.appendChild(finalSpan);
+
+  } else {
+    priceHtml.textContent = `$${product.FinalPrice}`;
+  }
+
+  //document.querySelector("#p-price").textContent = `$${product.FinalPrice}`;
+  document.querySelector("#p-color").textContent = product.Colors[0].ColorName;
+  document.querySelector("#p-description").innerHTML = product.DescriptionHtmlSimple;
+
+  document.querySelector("#addToCart").dataset.id = product.Id;
+}
+ /* let priceHtml = "";
 
   if (product.SuggestedRetailPrice > product.FinalPrice) {
     priceHtml = `
@@ -71,10 +97,11 @@ function productDetailsTemplate(product) {
   }
   return `
     <section class="product-detail">
+        <h2>${product.Category.charAt(0).toUpperCase() + product.Category.slice(1)}</h2>
         <h3 class="product-brand-name">${product.Brand.Name}</h3>
         <h2 class="product-card__name">${product.NameWithoutBrand}</h2>
         
-        <img class="divider" id="productImage" src="${product.Image}" alt="${product.NameWithoutBrand}">
+        <img class="divider" id="productImage" src="${product.Images.PrimaryExtraLarge}" alt="${product.NameWithoutBrand}">
         
         <p class="product-card__price" id="productPrice"> ${priceHtml}</p>
         <p class="product__color" id="productColor">${product.Colors[0].ColorName}</p>
@@ -86,8 +113,9 @@ function productDetailsTemplate(product) {
             <button id="addToCart" data-id="${product.Id}">Add to Cart</button>
         </div>
     </section>
-  `;
-}
+  `;*/
+  
+
 
 // Previous version of the code from the professor solution:
 

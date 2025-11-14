@@ -362,14 +362,14 @@ footer {
 }
 
 /* Original|Discounted price on details page */
-.product-card__price--original {
+.old-price {
   text-decoration: line-through;
   color: #454545;
   font-size: 1.2rem;
   margin-right: 10px;
 }
 
-.product-card__price--final {
+.final-price {
   font-weight: bold;
   color: #b22222;
   font-size: 1.6rem;
@@ -440,3 +440,31 @@ footer {
   position: relative;
   z-index: 1000;
 }
+ /*Categories section*/
+.product-grid {
+  columns: 4;
+  column-gap: 1rem;
+  list-style-type: none;
+  text-align: center;
+}
+
+.product-grid a {
+  text-decoration: none;
+  color: var(--dark-grey);
+  font-size: var(--small-font);
+}
+.product-grid img {
+  width: min(100px, 90%);
+}
+
+.products {
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.products h2 {
+  margin-bottom: 1em;
+}
+
+
+
