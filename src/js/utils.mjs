@@ -56,7 +56,7 @@ export function renderListWithTemplate(template, parentElement, list, position =
  * @returns {string} The capitalized string
  */
 export function capitalizeFirstLetter(string) {
-  if (!string) return '';
+  if (!string) return "";
 
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
@@ -71,9 +71,11 @@ export function capitalizeFirstLetter(string) {
  * prettifySlug('hammocks') // 'Hammocks'
  */
 export function prettifySlug(string) {
-  if (!string) return '';
+  if (!string) return "";
 
-  return string.split('-').map(capitalizeFirstLetter).join(' ');
+  return string.split("-").map(capitalizeFirstLetter).join(" ");
+}
+
 export function renderWithTemplate(template, parentElement, clear = false) {
   // if clear is true we need to clear out the contents of the parent.
   if (clear) {
