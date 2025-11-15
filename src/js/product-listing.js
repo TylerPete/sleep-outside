@@ -4,7 +4,7 @@ import ProductList from "./ProductList.mjs";
 
 const category = getParam("category");
 
-const titleElement = document.querySelector('h2');
+const titleElement = document.querySelector("h2");
 const categoryName = prettifySlug(category);
 
 titleElement.textContent = `Top Products for ${categoryName}`;
@@ -12,7 +12,7 @@ titleElement.textContent = `Top Products for ${categoryName}`;
 const dataSource = new ProductData();
 
 // then get the element you want the product list to render in
-const listElement = document.querySelector('.product-list');
+const listElement = document.querySelector(".product-list");
 
 
 // then create an instance of the ProductList class and send it the correct information.
