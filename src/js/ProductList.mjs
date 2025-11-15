@@ -1,4 +1,4 @@
-import { renderListWithTemplate } from "./utils.mjs";
+import { renderListWithTemplate,  } from "./utils.mjs";
 
 const baseURL = import.meta.env.VITE_SERVER_URL
 

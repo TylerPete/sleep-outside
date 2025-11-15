@@ -27,7 +27,7 @@ export function updateCartCount() {
   const cartItems = getLocalStorage("so-cart") || [];
 
   // Find the .cart-count element
-  const cartCountElement = qs(".cart-count");
+  const cartCountElement = qs(".cart-count",);
 
   // Set the text content.
   // If 0, it will be an empty string, and the CSS will hide it.
@@ -74,4 +74,35 @@ export function prettifySlug(string) {
   if (!string) return '';
 
   return string.split('-').map(capitalizeFirstLetter).join(' ');
+export function renderWithTemplate(template, parentElement, clear = false) {
+  // if clear is true we need to clear out the contents of the parent.
+  if (clear) {
+    parentElement.innerHTML = "";
+  }
+
+  parentElement.innerHTML = template;
+  updateCartCount();
+
+
+  // if (callback) {
+  //   callback(data);
+  // }
+}
+
+export async function loadTemplate(path) {
+  const response = await fetch(path);
+  const template = await response.text();
+  return template;
+}
+
+export async function loadHeaderFooter() {
+  const headerTemplate = await loadTemplate("../partials/header.html");
+  const footerTemplate = await loadTemplate("../partials/footer.html");
+
+
+  const headerElement = document.querySelector("#main-header");
+  const footerElement = document.querySelector("#main-footer");
+
+  renderWithTemplate(headerTemplate, headerElement);
+  renderWithTemplate(footerTemplate, footerElement);
 }

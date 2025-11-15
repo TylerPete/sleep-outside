@@ -1,4 +1,9 @@
-import { getLocalStorage, setLocalStorage, updateCartCount } from "./utils.mjs";
+import {
+  getLocalStorage,
+  setLocalStorage,
+  updateCartCount,
+  loadHeaderFooter,
+} from "./utils.mjs";
 
 function renderCartContents() {
   // 1. FIX: Get cart items or an empty array if cart is null
@@ -66,5 +71,6 @@ function addRemoveListener(buttonElement) {
   });
 }
 
+// Load dynamic header and footer templates
+loadHeaderFooter();
 renderCartContents();
-updateCartCount();
