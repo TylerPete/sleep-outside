@@ -50,6 +50,30 @@ export function renderListWithTemplate(template, parentElement, list, position =
   parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
 }
 
+/**
+ * Capitalize the first letter of each word in a string
+ * @param {string} string - The string to capitalize
+ * @returns {string} The capitalized string
+ */
+export function capitalizeFirstLetter(string) {
+  if (!string) return '';
+
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+/**
+ * Capitalize the first letter of each word in a string and join them with a space
+ * @param {string} string - The string to prettify
+ * @returns {string} The prettified string
+ * @example
+ * prettifySlug('tents') // 'Tents'
+ * prettifySlug('sleeping-bags') // 'Sleeping Bags'
+ * prettifySlug('hammocks') // 'Hammocks'
+ */
+export function prettifySlug(string) {
+  if (!string) return '';
+
+  return string.split('-').map(capitalizeFirstLetter).join(' ');
 export function renderWithTemplate(template, parentElement, clear = false) {
   // if clear is true we need to clear out the contents of the parent.
   if (clear) {

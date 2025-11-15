@@ -84,7 +84,7 @@ function productDetailsTemplate(product) {
         <h3 class="product-brand-name">${product.Brand.Name}</h3>
         <h2 class="product-card__name">${product.NameWithoutBrand}</h2>
         
-        <img class="divider" id="productImage" src="${product.Image}" alt="${product.NameWithoutBrand}">
+        <img class="divider" id="productImage" src="${product.Images.PrimaryLarge}" alt="${product.NameWithoutBrand}">
         
         <p class="product-card__price" id="productPrice"> ${priceHtml}</p>
         <p class="product__color" id="productColor">${product.Colors[0].ColorName}</p>
