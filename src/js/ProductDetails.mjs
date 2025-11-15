@@ -28,6 +28,16 @@ export default class ProductDetails {
     cartItems.push(this.product);
     setLocalStorage("so-cart", cartItems);
     updateCartCount(); // Update cart count display
+
+      // --- Cart Animation ---
+    const cartIcon = qs(".cart");
+    if (cartIcon) {
+      cartIcon.classList.add("cart-shake");
+      // setTimeout to wait 400ms (0.4s) - the same length as the animation so it can shake again next time!
+      setTimeout(() => {
+        cartIcon.classList.remove("cart-shake");
+      }, 400);
+    }
   }
 
   /**
