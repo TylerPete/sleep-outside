@@ -38,7 +38,12 @@
           }
         ]
       },
-      "SizesAvailable": { "SIZE": ["M", "L"] },
+      "SizesAvailable": {
+        "SIZE": [
+          "M",
+          "L"
+        ]
+      },
       "Colors": [
         {
           "ColorCode": "02",
@@ -86,7 +91,12 @@
           }
         ]
       },
-      "SizesAvailable": { "SIZE": ["S/M", "M/L"] },
+      "SizesAvailable": {
+        "SIZE": [
+          "S/M",
+          "M/L"
+        ]
+      },
       "Colors": [
         {
           "ColorCode": "01",
@@ -436,7 +446,12 @@
           }
         ]
       },
-      "SizesAvailable": { "SIZE": ["S/M", "XS/S"] },
+      "SizesAvailable": {
+        "SIZE": [
+          "S/M",
+          "XS/S"
+        ]
+      },
       "Colors": [
         {
           "ColorCode": "03",
@@ -612,7 +627,12 @@
           }
         ]
       },
-      "SizesAvailable": { "SIZE": ["S", "M"] },
+      "SizesAvailable": {
+        "SIZE": [
+          "S",
+          "M"
+        ]
+      },
       "Colors": [
         {
           "ColorCode": "02",
@@ -712,7 +732,12 @@
           }
         ]
       },
-      "SizesAvailable": { "SIZE": ["XS/S", "S/M"] },
+      "SizesAvailable": {
+        "SIZE": [
+          "XS/S",
+          "S/M"
+        ]
+      },
       "Colors": [
         {
           "ColorCode": "01",
@@ -808,7 +833,11 @@
           }
         ]
       },
-      "SizesAvailable": { "SIZE": ["M/L"] },
+      "SizesAvailable": {
+        "SIZE": [
+          "M/L"
+        ]
+      },
       "Colors": [
         {
           "ColorCode": "01",
@@ -856,7 +885,12 @@
           }
         ]
       },
-      "SizesAvailable": { "SIZE": ["S/M", "M/L"] },
+      "SizesAvailable": {
+        "SIZE": [
+          "S/M",
+          "M/L"
+        ]
+      },
       "Colors": [
         {
           "ColorCode": "02",
@@ -1028,7 +1062,11 @@
           }
         ]
       },
-      "SizesAvailable": { "SIZE": ["M"] },
+      "SizesAvailable": {
+        "SIZE": [
+          "M"
+        ]
+      },
       "Colors": [
         {
           "ColorCode": "01",
@@ -1076,7 +1114,12 @@
           }
         ]
       },
-      "SizesAvailable": { "SIZE": ["S/M", "L/XL"] },
+      "SizesAvailable": {
+        "SIZE": [
+          "S/M",
+          "L/XL"
+        ]
+      },
       "Colors": [
         {
           "ColorCode": "01",
@@ -1128,7 +1171,12 @@
           }
         ]
       },
-      "SizesAvailable": { "SIZE": ["M", "L"] },
+      "SizesAvailable": {
+        "SIZE": [
+          "M",
+          "L"
+        ]
+      },
       "Colors": [
         {
           "ColorCode": "02",
@@ -1180,7 +1228,13 @@
           }
         ]
       },
-      "SizesAvailable": { "SIZE": ["S", "M", "XL"] },
+      "SizesAvailable": {
+        "SIZE": [
+          "S",
+          "M",
+          "XL"
+        ]
+      },
       "Colors": [
         {
           "ColorCode": "01",
@@ -1290,7 +1344,12 @@
           }
         ]
       },
-      "SizesAvailable": { "SIZE": ["L/XL", "S/M"] },
+      "SizesAvailable": {
+        "SIZE": [
+          "L/XL",
+          "S/M"
+        ]
+      },
       "Colors": [
         {
           "ColorCode": "01",
@@ -1338,7 +1397,13 @@
           }
         ]
       },
-      "SizesAvailable": { "SIZE": ["S", "M", "XS"] },
+      "SizesAvailable": {
+        "SIZE": [
+          "S",
+          "M",
+          "XS"
+        ]
+      },
       "Colors": [
         {
           "ColorCode": "02",
@@ -1547,7 +1612,12 @@
           }
         ]
       },
-      "SizesAvailable": { "SIZE": ["S/M", "M/L"] },
+      "SizesAvailable": {
+        "SIZE": [
+          "S/M",
+          "M/L"
+        ]
+      },
       "Colors": [
         {
           "ColorCode": "02",
@@ -1949,7 +2019,14 @@
           }
         ]
       },
-      "SizesAvailable": { "SIZE": ["M", "L", "S", "XL"] },
+      "SizesAvailable": {
+        "SIZE": [
+          "M",
+          "L",
+          "S",
+          "XL"
+        ]
+      },
       "Colors": [
         {
           "ColorCode": "01",
@@ -2144,7 +2221,12 @@
           }
         ]
       },
-      "SizesAvailable": { "SIZE": ["S/M", "M/L"] },
+      "SizesAvailable": {
+        "SIZE": [
+          "S/M",
+          "M/L"
+        ]
+      },
       "Colors": [
         {
           "ColorCode": "01",
@@ -2260,7 +2342,11 @@
           }
         ]
       },
-      "SizesAvailable": { "SIZE": ["S/M"] },
+      "SizesAvailable": {
+        "SIZE": [
+          "S/M"
+        ]
+      },
       "Colors": [
         {
           "ColorCode": "01",
@@ -3183,7 +3269,11 @@
           }
         ]
       },
-      "SizesAvailable": { "SIZE": ["XS/S"] },
+      "SizesAvailable": {
+        "SIZE": [
+          "XS/S"
+        ]
+      },
       "Colors": [
         {
           "ColorCode": "02",

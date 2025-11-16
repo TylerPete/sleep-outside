@@ -35,7 +35,9 @@
         ]
       },
       "SizesAvailable": {
-        "ZIPPER": ["L"]
+        "ZIPPER": [
+          "L"
+        ]
       },
       "Colors": [
         {
@@ -91,7 +93,9 @@
         ]
       },
       "SizesAvailable": {
-        "ZIPPER": ["LH"]
+        "ZIPPER": [
+          "LH"
+        ]
       },
       "Colors": [
         {
@@ -192,8 +196,12 @@
         ]
       },
       "SizesAvailable": {
-        "LENGTH": ["REG"],
-        "ZIPPER": ["R"]
+        "LENGTH": [
+          "REG"
+        ],
+        "ZIPPER": [
+          "R"
+        ]
       },
       "Colors": [
         {
@@ -315,7 +323,9 @@
         ]
       },
       "SizesAvailable": {
-        "ZIPPER": ["L"]
+        "ZIPPER": [
+          "L"
+        ]
       },
       "Colors": [
         {
@@ -360,7 +370,9 @@
         "ExtraImages": null
       },
       "SizesAvailable": {
-        "HAND": ["LH"]
+        "HAND": [
+          "LH"
+        ]
       },
       "Colors": [
         {
@@ -410,7 +422,9 @@
         ]
       },
       "SizesAvailable": {
-        "ZIPPER": ["L"]
+        "ZIPPER": [
+          "L"
+        ]
       },
       "Colors": [
         {
@@ -460,7 +474,9 @@
         ]
       },
       "SizesAvailable": {
-        "ZIPPER": ["L"]
+        "ZIPPER": [
+          "L"
+        ]
       },
       "Colors": [
         {
@@ -510,7 +526,9 @@
         ]
       },
       "SizesAvailable": {
-        "ZIPPER": ["L"]
+        "ZIPPER": [
+          "L"
+        ]
       },
       "Colors": [
         {
@@ -560,7 +578,9 @@
         ]
       },
       "SizesAvailable": {
-        "ZIPPER": ["L"]
+        "ZIPPER": [
+          "L"
+        ]
       },
       "Colors": [
         {
@@ -610,7 +630,9 @@
         ]
       },
       "SizesAvailable": {
-        "ZIPPER": ["L"]
+        "ZIPPER": [
+          "L"
+        ]
       },
       "Colors": [
         {
@@ -708,7 +730,9 @@
         ]
       },
       "SizesAvailable": {
-        "ZIPPER": ["L"]
+        "ZIPPER": [
+          "L"
+        ]
       },
       "Colors": [
         {
@@ -994,7 +1018,9 @@
         ]
       },
       "SizesAvailable": {
-        "ZIPPER": ["L"]
+        "ZIPPER": [
+          "L"
+        ]
       },
       "Colors": [
         {
@@ -1044,7 +1070,9 @@
         ]
       },
       "SizesAvailable": {
-        "ZIPPER": ["R"]
+        "ZIPPER": [
+          "R"
+        ]
       },
       "Colors": [
         {
@@ -1094,7 +1122,9 @@
         ]
       },
       "SizesAvailable": {
-        "ZIPPER": ["RH"]
+        "ZIPPER": [
+          "RH"
+        ]
       },
       "Colors": [
         {

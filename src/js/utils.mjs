@@ -67,7 +67,6 @@ export function renderWithTemplate(template, parentElement, position = "afterbeg
 
 export async function loadTemplate(path) {
   const response = await fetch(path);
-  console.log(response);
   const template = await response.text();
   return template;
 }

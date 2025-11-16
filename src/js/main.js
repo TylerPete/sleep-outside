@@ -12,8 +12,8 @@ loadHeaderFooter();
 const alert = new Alert();
 alert.init();
 
-const productData = new ProductData("tents");
+const productData = new ProductData();
 const listElement = document.querySelector(".product-list");
 
-const productList = new ProductList("tents", productData, listElement);
-productList.init();
+// const productList = new ProductList("tents", productData, listElement);
+// productList.init();
