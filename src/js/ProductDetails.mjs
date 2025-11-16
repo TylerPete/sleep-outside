@@ -56,16 +56,27 @@ function productDetailsTemplate(product) {
   let priceHtml = document.querySelector("#p-price");
   priceHtml.textContent = "";
   if (product.SuggestedRetailPrice > product.FinalPrice) {
+    
+    const oldPrice = product.SuggestedRetailPrice;
+    const finalPrice = product.FinalPrice;
+    const discountAmount = oldPrice - finalPrice;
+
     const suggestedSpan = document.createElement("span");
-    suggestedSpan.textContent = `$${product.SuggestedRetailPrice}`;
+    suggestedSpan.textContent = `$${oldPrice}`;
     suggestedSpan.classList.add("old-price");
     
     const finalSpan = document.createElement("span");
     finalSpan.classList.add("final-price");
-    finalSpan.textContent = `$${product.FinalPrice}`;
+    finalSpan.textContent = `$${finalPrice}`;
+
+    const discountAmountSpan = document.createElement("span");
+    discountAmountSpan.classList.add("discount-amount");
+    discountAmountSpan.textContent = `You save $${discountAmount.toFixed(2)}`;
 
     priceHtml.appendChild(suggestedSpan);
     priceHtml.appendChild(finalSpan);
+    priceHtml.appendChild(discountAmountSpan);
+
 
   } else {
     priceHtml.textContent = `$${product.FinalPrice}`;
@@ -77,6 +88,8 @@ function productDetailsTemplate(product) {
 
   document.querySelector("#addToCart").dataset.id = product.Id;
 }
+
+
  /* let priceHtml = "";
 
   if (product.SuggestedRetailPrice > product.FinalPrice) {

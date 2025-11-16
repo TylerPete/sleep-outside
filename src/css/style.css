@@ -381,6 +381,14 @@ footer {
   padding-right: 1em;
 }
 
+.discount-amount{
+  color: #b22222;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0.2rem 0.5rem;
+  margin-left: 0.5rem;
+}
+
 /* --- For Small Screens --- */
 @media screen and (max-width: 449px) {
   .product-list {
@@ -465,6 +473,7 @@ footer {
 .products h2 {
   margin-bottom: 1em;
 }
+
 
 
 
