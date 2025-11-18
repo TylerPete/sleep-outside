@@ -153,6 +153,7 @@ button {
   margin: 0 auto;
   width: 50%;
   text-align: center;
+  font-size: min(1.2rem, 3vw);
 }
 
 .products {
@@ -179,6 +180,7 @@ button {
   padding: 0.5em;
   border: 1px solid var(--light-grey);
   max-width: 250px;
+  border-radius: 9px;
 }
 
 .product-card h2,
@@ -250,10 +252,6 @@ button {
   body {
     max-width: 1080px;
     margin: auto;
-  }
-
-  .mission {
-    font-size: 1.2em;
   }
 
   .cart-card {
@@ -464,6 +462,18 @@ main > h2 {
     justify-self: end;
     font-size: 1.5rem;
   }
+
+  .mission p {
+    display: none;
+  }
+
+  .categories {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  .category {
+    font-size: var(--small-font);
+  }
 }
 
 .categories {
@@ -471,7 +481,7 @@ main > h2 {
   gap: 10px;
   justify-content: space-around;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 25px;
   margin-bottom: 20px;
 }
 
@@ -483,6 +493,10 @@ main > h2 {
   gap: 10px;
   text-decoration: none;
   color: inherit;
+}
+
+.category:hover {
+  color: var(--tertiary-color);
 }
 
 .categories img {
