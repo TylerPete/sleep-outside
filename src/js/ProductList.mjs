@@ -1,7 +1,5 @@
 import { renderListWithTemplate,  } from "./utils.mjs";
 
-const baseURL = import.meta.env.VITE_SERVER_URL
-
 function productCardTemplate(product) {
     const discountText = calculateDiscountPercentage(product.SuggestedRetailPrice, product.FinalPrice);
     let discountBadgeHtml = "";
@@ -35,21 +33,35 @@ export default class ProductList {
         this.category = category;
         this.dataSource = dataSource;
         this.listElement = listElement;
+        this.productList = [];
     }
 
     async init() {
 
-        const productList = await this.dataSource.getData(this.category);
-
-
-        const badIds = ["989CG", "880RT"];
-
-        const filteredList = productList.filter(product => !badIds.includes(product.Id));
-        this.renderList(filteredList);
+        this.productList = await this.dataSource.getData(this.category);
+        this.renderList(this.productList);
     }
 
-    renderList(list) {
-        renderListWithTemplate(productCardTemplate, this.listElement, list);
+    renderList(list, clear = false) {
+        renderListWithTemplate(productCardTemplate, this.listElement, list, "afterbegin", clear);
     }
 
+    sortList(sortBy) {
+        switch (sortBy) {
+        case "name-asc":
+            this.productList.sort((a, b) => a.Name.localeCompare(b.Name));
+            break;
+        case "name-desc":
+            this.productList.sort((a, b) => b.Name.localeCompare(a.Name));
+            break;
+        case "price-asc":
+            this.productList.sort((a, b) => a.FinalPrice - b.FinalPrice);
+            break;
+        case "price-desc":
+            this.productList.sort((a, b) => b.FinalPrice - a.FinalPrice);
+            break;
+        }
+
+    this.renderList(this.productList, true);
+  }
 }

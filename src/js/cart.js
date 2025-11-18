@@ -34,7 +34,7 @@ function renderCartContents() {
 
 function cartItemTemplate(item) {
   const productUrl = `/product_pages/?product=${item.Id}`;
-  
+
   const newItem = `<li class="cart-card divider">
   <span class="remove-button" title="Remove from cart" data-id=${item.Id}>&times;</span>
   <a href="${productUrl}" class="cart-card__image">
