@@ -89,6 +89,9 @@ function productDetailsTemplate(product) {
    <span class="product-card__price--final">
     $${product.FinalPrice}
    </span>
+   <span class="product-card__price--discount">
+      You save $${(product.SuggestedRetailPrice - product.FinalPrice).toFixed(2)}
+    </span>
  `;
   } else {
     priceHtml = `

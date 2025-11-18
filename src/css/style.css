@@ -153,6 +153,7 @@ button {
   margin: 0 auto;
   width: 50%;
   text-align: center;
+  font-size: min(1.2rem, 3vw);
 }
 
 .products {
@@ -179,6 +180,7 @@ button {
   padding: 0.5em;
   border: 1px solid var(--light-grey);
   max-width: 250px;
+  border-radius: 9px;
 }
 
 .product-card h2,
@@ -250,10 +252,6 @@ button {
   body {
     max-width: 1080px;
     margin: auto;
-  }
-
-  .mission {
-    font-size: 1.2em;
   }
 
   .cart-card {
@@ -381,6 +379,37 @@ footer {
   padding-right: 1em;
 }
 
+.product-card__price--discount {
+  color: #b22222;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0.2rem 0.5rem;
+}
+
+main > h2 {
+  text-align: center;
+  font-size: min(2.3rem, 5vw);
+  color: var(--tertiary-color);
+  letter-spacing: 1.5px;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+/* --- Product List Sort Dropdown --- */
+.sort-container {
+  margin: 1rem 0;
+  text-align: right;
+  padding-right: 1rem;
+}
+
+#sort-options {
+  font-size: 1rem;
+  font-family: var(--font-body);
+  padding: 0.5rem;
+  border: 2px solid var(--dark-grey);
+  border-radius: 8px;
+}
+
 /* --- For Small Screens --- */
 @media screen and (max-width: 449px) {
   .product-list {
@@ -433,6 +462,18 @@ footer {
     justify-self: end;
     font-size: 1.5rem;
   }
+
+  .mission p {
+    display: none;
+  }
+
+  .categories {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  .category {
+    font-size: var(--small-font);
+  }
 }
 
 .categories {
@@ -440,7 +481,7 @@ footer {
   gap: 10px;
   justify-content: space-around;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 25px;
   margin-bottom: 20px;
 }
 
@@ -452,6 +493,10 @@ footer {
   gap: 10px;
   text-decoration: none;
   color: inherit;
+}
+
+.category:hover {
+  color: var(--tertiary-color);
 }
 
 .categories img {
