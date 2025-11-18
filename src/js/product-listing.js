@@ -1,6 +1,9 @@
-import { updateCartCount, getParam, prettifySlug } from "./utils.mjs";
+import { updateCartCount, getParam, prettifySlug, loadHeaderFooter } from "./utils.mjs";
 import ProductData from "./ProductData.mjs";
 import ProductList from "./ProductList.mjs";
+
+// Load dynamic header and footer templates
+loadHeaderFooter();
 
 const category = getParam("category");
 

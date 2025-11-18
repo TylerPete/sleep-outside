@@ -14,6 +14,10 @@ export default class ProductDetails {
 
     // use the datasource to get the details for the current product. findProductById will return a promise! use await or .then() to process it
     this.product = await this.dataSource.findProductById(this.productId);
+    
+    //Set a baseline quantity of 1 for the item
+    Object.assign(this.product, { Quantity: 1 });
+
     // the product details are needed before rendering the HTML
     this.renderProductDetails();
     // once the HTML is rendered, add a listener to the Add to Cart button
@@ -25,11 +29,25 @@ export default class ProductDetails {
 
   addProductToCart() {
     const cartItems = getLocalStorage("so-cart") || [];
-    cartItems.push(this.product);
+
+    console.log("cartItems in localStorage: ");
+    console.log(cartItems);
+
+    const cartItemIds = cartItems.map(cartItem => {
+      return cartItem.Id;
+    })
+
+    if (!cartItemIds.includes(this.productId)) {
+      cartItems.push(this.product);
+    } else {
+      const itemAlreadyInCart = cartItems.find(item => item.Id === this.productId);
+      itemAlreadyInCart.Quantity += this.product.Quantity;
+    }
+
     setLocalStorage("so-cart", cartItems);
     updateCartCount(); // Update cart count display
 
-      // --- Cart Animation ---
+    // --- Cart Animation ---
     const cartIcon = qs(".cart");
     if (cartIcon) {
       cartIcon.classList.add("cart-shake");
