@@ -25,13 +25,16 @@ export function setClick(selector, callback) {
 export function updateCartCount() {
   // Get cart items from localStorage, or an empty array if the cart is null
   const cartItems = getLocalStorage("so-cart") || [];
+  const numItems = cartItems.reduce((sum, item) => sum + item.Quantity, 0);
 
   // Find the .cart-count element
   const cartCountElement = qs(".cart-count",);
 
+
+
   // Set the text content.
   // If 0, it will be an empty string, and the CSS will hide it.
-  cartCountElement.textContent = cartItems.length > 0 ? cartItems.length : "";
+  cartCountElement.textContent = cartItems.length > 0 ? numItems : "";
 }
 
 export function getParam(param) {

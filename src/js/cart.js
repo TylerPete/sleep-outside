@@ -25,8 +25,11 @@ function renderCartContents() {
     const removeButtons = document.querySelectorAll(".remove-button");
     removeButtons.forEach((button) => addRemoveListener(button));
 
+    const quantityChangeButtons = document.querySelectorAll(".quantity_changer");
+    quantityChangeButtons.forEach((button) => addQuantityChangeListener(button));
+
     // 4. Calculate total and show footer
-    const total = cartItems.reduce((sum, item) => sum + item.FinalPrice, 0);
+    const total = cartItems.reduce((sum, item) => sum + (item.FinalPrice * item.Quantity), 0);
     cartTotalElement.textContent = `Total: $${total.toFixed(2)}`;
     cartFooter.classList.remove("hide");
   }
@@ -47,7 +50,7 @@ function cartItemTemplate(item) {
     <h2 class="card__name">${item.Name}</h2>
   </a>
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-  <p class="cart-card__quantity">qty: 1</p>
+  <p class="cart-card__quantity">qty: <span class="quantity_changer" id="subtract_button" data-id=${item.Id}> - </span> ${item.Quantity} <span class="quantity_changer" id="add_button" data-id=${item.Id}> + </span></p>
   <p class="cart-card__price">$${item.FinalPrice}</p>
   </li>`;
 
@@ -68,6 +71,39 @@ function addRemoveListener(buttonElement) {
 
     updateCartCount();
     renderCartContents();
+  });
+}
+
+function addQuantityChangeListener(quantity_changer_button_element) {
+
+  quantity_changer_button_element.addEventListener("click", () => {
+    const thisProductId = quantity_changer_button_element.getAttribute("data-id");
+
+    console.log("Button data-id: ", thisProductId);
+
+    const cartItems = getLocalStorage("so-cart");
+
+    const itemAlreadyInCart = cartItems.find(item => item.Id === thisProductId);
+
+    if (quantity_changer_button_element.id === "add_button") {
+      itemAlreadyInCart.Quantity++;
+    } else if (quantity_changer_button_element.id === "subtract_button") {
+      itemAlreadyInCart.Quantity--;
+
+      if (itemAlreadyInCart.Quantity <= 0) {
+        const deleteIndex = cartItems.findIndex(
+          (element) => element.Id === thisProductId,
+        );
+
+        cartItems.splice(deleteIndex, 1);
+      }
+    }
+
+    setLocalStorage("so-cart", cartItems);
+
+    updateCartCount();
+    renderCartContents();
+
   });
 }
 
