@@ -1,5 +1,6 @@
 import { loadHeaderFooter } from "./utils.mjs";
 import CheckoutProcess from "./CheckoutProcess.mjs";
+import { checkout } from "./CheckoutProcess.mjs";
 
 // Load dynamic header and footer templates
 loadHeaderFooter();
@@ -17,3 +18,9 @@ shippingElement.textContent = `Shipping: $${checkoutProcess.calculateDisplayShip
 
 const totalElement = document.querySelector("#total");
 totalElement.textContent = `Total: $${(checkoutProcess.calculateOrderTotal() / 100).toFixed(2)}`;
+
+const checkoutForm = document.querySelector("#checkoutForm");
+checkoutForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    checkout(checkoutForm);
+});

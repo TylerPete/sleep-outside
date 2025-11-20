@@ -32,3 +32,32 @@ export default class CheckoutProcess {
         return parseInt(this.subtotal) + parseInt(this.tax) + parseInt(this.shipping);
     }
 }
+
+//takes the items currently stored in the cart (localStorage) and returns them in a simplified form
+function packageItems(items) {
+    const checkoutItems = items.map(item => {
+        const itemObj = {
+            id: item.Id,
+            name: item.Name,
+            price: item.FinalPrice,
+            quantity: item.Quantity
+        }
+
+        return itemObj;
+    });
+
+    return checkoutItems;
+}
+
+export async function checkout(form) {
+    const formData = new FormData(form);
+    const dataObj = Object.fromEntries(formData.entries());
+
+    const cartItems = getLocalStorage("so-cart") || [];
+    const items = packageItems(cartItems);
+
+    dataObj.orderDate = new Date().toISOString();
+    dataObj.items = items;
+
+    console.log(dataObj);
+}
