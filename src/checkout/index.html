@@ -23,6 +23,7 @@
     </section>
 
     <form method="POST" class="f-checkout">
+
       <fieldset>
         <legend>Personal Information</legend>
 
@@ -48,16 +49,18 @@
             required></label>
       </fieldset>
 
-      <button type="submit">Checkout</button>
-
       <section id="orderSummary">
-        <ul>
+        <h3 class="heading3">Order Summary</h3>
+        <ul class="order-summary-list">
           <li id="subtotal"></li>
           <li id="tax"></li>
           <li id="shipping"></li>
           <li id="total"></li>
         </ul>
       </section>
+
+      <button type="submit">Checkout</button>
+
     </form>
 
   </main>
