@@ -1,4 +1,7 @@
 import { getLocalStorage } from "./utils.mjs";
+import ExternalServices from "./ExternalServices.mjs";
+
+const services = new ExternalServices();
 
 export default class CheckoutProcess {
     constructor() {
@@ -34,7 +37,7 @@ export default class CheckoutProcess {
 }
 
 //takes the items currently stored in the cart (localStorage) and returns them in a simplified form
-function packageItems(items) {
+export function packageItems(items) {
     const checkoutItems = items.map(item => {
         const itemObj = {
             id: item.Id,
@@ -59,5 +62,23 @@ export async function checkout(form) {
     dataObj.orderDate = new Date().toISOString();
     dataObj.items = items;
 
-    console.log(dataObj);
+    const shippingElement = form.querySelector("#shipping");
+    const taxElement = form.querySelector("#tax");
+    const totalElement = form.querySelector("#total");
+    
+    // "Globally (everywhere in the string) find all characters that are NOT
+    //  a digit (0-9) OR a period (.) and replace it with ''."
+    // .trim() cleans up whitespace from the ends
+    // .replace(/[^0-9.]/g, '') removes everything except numbers and the dot
+    dataObj.shipping = parseFloat(shippingElement.textContent.trim().replace(/[^0-9.]/g, ""));
+    dataObj.tax = taxElement.textContent.trim().replace(/[^0-9.]/g, ""); 
+    dataObj.orderTotal = totalElement.textContent.trim().replace(/[^0-9.]/g, ""); 
+
+    try {
+      const response = await services.checkout(dataObj);
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+
 }

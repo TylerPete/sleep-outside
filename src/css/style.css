@@ -90,7 +90,7 @@ p {
   margin-top: -1.3em;
 }
 
-.logo--square>div {
+.logo--square > div {
   margin-top: -1.7em;
 }
 
@@ -386,7 +386,7 @@ footer {
   padding: 0.2rem 0.5rem;
 }
 
-main>h2 {
+main > h2 {
   text-align: center;
   font-size: min(2.3rem, 5vw);
   color: var(--tertiary-color);
@@ -602,7 +602,6 @@ main>h2 {
     padding: 0.3rem;
   }
 
-
   label {
     display: block;
     margin-top: 0.8rem;
@@ -610,12 +609,12 @@ main>h2 {
     font-weight: 500;
   }
 
-  input[type=text],
-  input[type=month],
-  input[type=password] {
+  input[type="text"],
+  input[type="month"],
+  input[type="password"] {
     width: 100%;
-    margin-top: .3rem;
-    padding: .5rem;
+    margin-top: 0.3rem;
+    padding: 0.5rem;
     border-radius: 4px;
     border: 1px solid #ccc;
     font-size: 1rem;

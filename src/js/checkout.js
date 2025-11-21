@@ -8,7 +8,7 @@ loadHeaderFooter();
 const checkoutProcess = new CheckoutProcess();
 
 const subtotalElement = document.querySelector("#subtotal");
-subtotalElement.textContent = `Subtotal: $${checkoutProcess.calculateDisplaySubtotal() / 100}`;
+subtotalElement.textContent = `Subtotal: $${(checkoutProcess.calculateDisplaySubtotal() / 100).toFixed(2)}`;
 
 const taxElement = document.querySelector("#tax");
 taxElement.textContent = `Tax: $${(checkoutProcess.calculateDisplayTax() / 100).toFixed(2)}`;
@@ -21,6 +21,6 @@ totalElement.textContent = `Total: $${(checkoutProcess.calculateOrderTotal() / 1
 
 const checkoutForm = document.querySelector("#checkoutForm");
 checkoutForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-    checkout(checkoutForm);
+  event.preventDefault();
+  checkout(checkoutForm);
 });
