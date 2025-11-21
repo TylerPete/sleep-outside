@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Sleep Outside | Checkout</title>
-
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
     <link rel="stylesheet" href="../css/style.css" />
 
     <script src="../js/checkout.js" type="module"></script>
@@ -20,6 +20,69 @@
       <section class="products">
         <h2>Review & Place your Order</h2>
       </section>
+
+      <form id="checkoutForm" method="POST" class="f-checkout">
+        <fieldset>
+          <legend>Personal Information</legend>
+
+          <label>First Name <input type="text" name="fname" required /></label>
+          <label>Last Name <input type="text" name="lname" required /></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Address</legend>
+
+          <label
+            >Street Address <input type="text" name="street" required
+          /></label>
+          <label>City <input type="text" name="city" required /></label>
+          <label>State <input type="text" name="state" required /></label>
+          <label
+            >Zip Code
+            <input type="text" name="zip" inputmode="numeric" required
+          /></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Payment</legend>
+
+          <label
+            >Credit Card Number
+            <input type="text" name="cardNumber" inputmode="numeric" required
+          /></label>
+          <label
+            >Expiration Date
+            <input
+              type="text"
+              name="expiration"
+              placeholder="MM/YY"
+              inputmode="numeric"
+              maxlength="5"
+              required
+          /></label>
+          <label
+            >Security Code (CVV)
+            <input
+              type="password"
+              name="code"
+              inputmode="numeric"
+              maxlength="4"
+              required
+          /></label>
+        </fieldset>
+
+        <section id="orderSummary">
+          <h3 class="heading3">Order Summary</h3>
+          <ul class="order-summary-list">
+            <li id="subtotal"></li>
+            <li id="tax"></li>
+            <li id="shipping"></li>
+            <li id="total"></li>
+          </ul>
+        </section>
+
+        <button id="submitButton" type="submit">Checkout</button>
+      </form>
     </main>
 
     <footer id="main-footer"></footer>

@@ -25,11 +25,17 @@ function renderCartContents() {
     const removeButtons = document.querySelectorAll(".remove-button");
     removeButtons.forEach((button) => addRemoveListener(button));
 
-    const quantityChangeButtons = document.querySelectorAll(".quantity_changer");
-    quantityChangeButtons.forEach((button) => addQuantityChangeListener(button));
+    const quantityChangeButtons =
+      document.querySelectorAll(".quantity_changer");
+    quantityChangeButtons.forEach((button) =>
+      addQuantityChangeListener(button),
+    );
 
     // 4. Calculate total and show footer
-    const total = cartItems.reduce((sum, item) => sum + (item.FinalPrice * item.Quantity), 0);
+    const total = cartItems.reduce(
+      (sum, item) => sum + item.FinalPrice * item.Quantity,
+      0,
+    );
     cartTotalElement.textContent = `Total: $${total.toFixed(2)}`;
     cartFooter.classList.remove("hide");
   }
@@ -75,15 +81,15 @@ function addRemoveListener(buttonElement) {
 }
 
 function addQuantityChangeListener(quantity_changer_button_element) {
-
   quantity_changer_button_element.addEventListener("click", () => {
-    const thisProductId = quantity_changer_button_element.getAttribute("data-id");
-
-    console.log("Button data-id: ", thisProductId);
+    const thisProductId =
+      quantity_changer_button_element.getAttribute("data-id");
 
     const cartItems = getLocalStorage("so-cart");
 
-    const itemAlreadyInCart = cartItems.find(item => item.Id === thisProductId);
+    const itemAlreadyInCart = cartItems.find(
+      (item) => item.Id === thisProductId,
+    );
 
     if (quantity_changer_button_element.id === "add_button") {
       itemAlreadyInCart.Quantity++;
@@ -103,7 +109,6 @@ function addQuantityChangeListener(quantity_changer_button_element) {
 
     updateCartCount();
     renderCartContents();
-
   });
 }
 

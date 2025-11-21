@@ -10,12 +10,3 @@ loadHeaderFooter();
 // Initialize alerts
 const alert = new Alert();
 alert.init();
-
-// Old product list generator code, now not needed in src/index.html
-//    (only needed in product_listing/index.html)
-
-// const productData = new ProductData("tents");
-// const listElement = document.querySelector(".product-list");
-
-// const productList = new ProductList("tents", productData, listElement);
-// productList.init();
