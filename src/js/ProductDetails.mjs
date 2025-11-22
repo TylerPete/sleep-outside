@@ -1,4 +1,4 @@
-import { setLocalStorage, getLocalStorage, updateCartCount, qs, loadHeaderFooter } from "./utils.mjs";
+import { setLocalStorage, getLocalStorage, updateCartCount, qs, loadHeaderFooter, alertMessage } from "./utils.mjs";
 
 export default class ProductDetails {
   constructor(productId, dataSource) {
@@ -11,10 +11,9 @@ export default class ProductDetails {
     // Load dynamic header and footer templates
     loadHeaderFooter();
 
-
     // use the datasource to get the details for the current product. findProductById will return a promise! use await or .then() to process it
     this.product = await this.dataSource.findProductById(this.productId);
-    
+
     //Set a baseline quantity of 1 for the item
     Object.assign(this.product, { Quantity: 1 });
 
@@ -46,6 +45,8 @@ export default class ProductDetails {
 
     setLocalStorage("so-cart", cartItems);
     updateCartCount(); // Update cart count display
+
+    alertMessage("Product added to cart");
 
     // --- Cart Animation ---
     const cartIcon = qs(".cart");
