@@ -627,3 +627,19 @@ main > h2 {
     margin: 1.3rem 0;
   }
 }
+
+/* Alert message styling for checkout */
+.alertMessage {
+  margin: 0.5rem;
+  padding: 0 0.75rem;
+  background-color: var(--primary-color);
+  border: 1px solid var(--tertiary-color);
+  line-height: 44px;
+  display: grid;
+  grid-template-columns: 30fr 1fr;
+  align-items: center;
+
+  .closeAlert:hover {
+    cursor: pointer;
+  }
+}

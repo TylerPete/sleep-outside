@@ -104,10 +104,32 @@ export async function loadHeaderFooter() {
   const headerTemplate = await loadTemplate("../partials/header.html");
   const footerTemplate = await loadTemplate("../partials/footer.html");
 
-
   const headerElement = document.querySelector("#main-header");
   const footerElement = document.querySelector("#main-footer");
 
   renderWithTemplate(headerTemplate, headerElement);
   renderWithTemplate(footerTemplate, footerElement);
+}
+
+export function alertMessage(message, scroll = true) {
+  const parentMain = document.querySelector("main");
+
+  const alertMessage = document.createElement("div");
+  alertMessage.classList.add("alertMessage");
+  alertMessage.textContent = message;
+
+  const xSpan = document.createElement("span");
+  xSpan.classList.add("closeAlert");
+  xSpan.textContent = "X";
+
+  alertMessage.appendChild(xSpan);
+  parentMain.prepend(alertMessage);
+
+  xSpan.addEventListener("click", (event) => {
+    parentMain.removeChild(alertMessage);
+  });
+
+  if (scroll) {
+    window.scrollTo(0, 0);
+  }
 }

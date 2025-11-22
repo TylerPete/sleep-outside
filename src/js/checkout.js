@@ -21,6 +21,7 @@ totalElement.textContent = `Total: $${(checkoutProcess.calculateOrderTotal() / 1
 
 const checkoutForm = document.querySelector("#checkoutForm");
 checkoutForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-  checkout(checkoutForm);
+    event.preventDefault();
+    const isValid = checkoutForm.checkValidity();
+    if (isValid) checkout(checkoutForm);
 });
