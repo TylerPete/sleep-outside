@@ -739,3 +739,26 @@ main > h2 {
     width: auto;
   }
 }
+
+/* Breadcrumb Navigation */
+.breadcrumb {
+  padding: 0.75rem 1rem;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid var(--light-grey);
+  font-size: var(--small-font);
+}
+
+.breadcrumb a {
+  color: var(--tertiary-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb span {
+  color: var(--dark-grey);
+  margin-left: 0.25rem;
+}
