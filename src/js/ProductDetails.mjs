@@ -1,4 +1,4 @@
-import { setLocalStorage, getLocalStorage, updateCartCount, qs, loadHeaderFooter } from "./utils.mjs";
+import { setLocalStorage, getLocalStorage, updateCartCount, qs, loadHeaderFooter, alertMessage } from "./utils.mjs";
 
 export default class ProductDetails {
   constructor(productId, dataSource) {
@@ -51,6 +51,7 @@ export default class ProductDetails {
         cartIcon.classList.remove("cart-shake");
       }, 400);
     }
+    alertMessage(`${this.product.NameWithoutBrand} added to cart!`);
   }
 
   /**
