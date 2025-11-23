@@ -115,7 +115,7 @@ export async function loadHeaderFooter() {
 }
 
 export function alertMessage(message, scroll = true) {
-  const main = document.qs("main");
+  const main = qs("main");
   const alert = document.createElement("div");
   alert.classList.add("alert");
   alert.innerHTML = `<p>${message}</p><span>&times;</span>`;
@@ -131,5 +131,5 @@ export function alertMessage(message, scroll = true) {
 
 export function removeAllAlerts() {
   const alerts = document.querySelectorAll(".alert");
-  alerts.forEach((alert) => document.qs("main").removeChild(alert));
+  alerts.forEach((alert) => qs("main").removeChild(alert));
 }
