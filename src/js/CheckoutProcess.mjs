@@ -75,10 +75,10 @@ export async function checkout(form) {
     dataObj.orderTotal = totalElement.textContent.trim().replace(/[^0-9.]/g, ""); 
 
     try {
-      const response = await services.checkout(dataObj);
-      console.log(response);
+        const response = await services.checkout(dataObj);
+        console.log(response);
     } catch (err) {
-      console.log(err);
+        console.log(err);
     }
 
 }
