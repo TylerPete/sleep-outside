@@ -75,8 +75,7 @@ export async function checkout(form) {
     dataObj.orderTotal = totalElement.textContent.trim().replace(/[^0-9.]/g, ""); 
 
     try {
-        const response = await services.checkout(dataObj);
-        console.log(response);
+        await services.checkout(dataObj);
         setLocalStorage("so-cart", []);
         location.href = "./success.html";
     } catch (err) {
@@ -86,11 +85,11 @@ export async function checkout(form) {
                 if (typeof err.message[key] === "string"){
                     alertMessage(err.message[key]);
                 }else if (Array.isArray(err.message[key])){
-                    err.message[key].array.forEach(msg => alertMessage(msg));
+                    err.message[key].forEach(msg => alertMessage(msg));
                 }
             }
         }else{
-            console.log(err);
+            console.error(err);
             alertMessage(err.message || "An unexpected error occurred during checkout.")
         }
         

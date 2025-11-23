@@ -560,7 +560,7 @@ main > h2 {
   max-width: 800px;
   width: 100%;
   margin: 2rem auto;
-  padding: 0rem 2rem;
+  padding: 0rem 1rem;
 
   #orderSummary {
     background-color: #f7f8fa;
