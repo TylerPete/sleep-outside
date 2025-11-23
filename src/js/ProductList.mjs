@@ -36,9 +36,12 @@ export default class ProductList {
         this.productList = [];
     }
 
-    async init() {
-
-        this.productList = await this.dataSource.getData(this.category);
+    async init(isSearch = false) {
+        if (isSearch) {
+            this.productList = await this.dataSource.searchProducts(this.category);
+        } else {
+            this.productList = await this.dataSource.getData(this.category);
+        }
         this.renderList(this.productList);
     }
 

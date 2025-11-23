@@ -52,13 +52,13 @@ export default class ExternalServices {
       
       const lowercaseQuery = query.toLowerCase();
 
-      // Filter: Check Name, Brand, and Description
+      // This filter: Can check Name, Brand, and maybe Description
       const filtered = allProducts.filter(item => {
         const nameMatch = item.Name && item.Name.toLowerCase().includes(lowercaseQuery);
         const brandMatch = item.Brand && item.Brand.Name && item.Brand.Name.toLowerCase().includes(lowercaseQuery);
-        const descMatch = item.DescriptionHtmlSimple && item.DescriptionHtmlSimple.toLowerCase().includes(lowercaseQuery);
+        // const descMatch = item.DescriptionHtmlSimple && item.DescriptionHtmlSimple.toLowerCase().includes(lowercaseQuery);
         
-        return nameMatch || brandMatch || descMatch;
+        return nameMatch || brandMatch;
       });
 
       return filtered;
