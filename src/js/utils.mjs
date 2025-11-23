@@ -28,9 +28,7 @@ export function updateCartCount() {
   const numItems = cartItems.reduce((sum, item) => sum + item.Quantity, 0);
 
   // Find the .cart-count element
-  const cartCountElement = qs(".cart-count",);
-
-
+  const cartCountElement = qs(".cart-count");
 
   // Set the text content.
   // If 0, it will be an empty string, and the CSS will hide it.
@@ -44,7 +42,13 @@ export function getParam(param) {
   return product;
 }
 
-export function renderListWithTemplate(template, parentElement, list, position = "afterbegin", clear = false) {
+export function renderListWithTemplate(
+  template,
+  parentElement,
+  list,
+  position = "afterbegin",
+  clear = false,
+) {
   const htmlStrings = list.map(template);
   // if clear is true we need to clear out the contents of the parent.
   if (clear) {
@@ -88,7 +92,6 @@ export function renderWithTemplate(template, parentElement, clear = false) {
   parentElement.innerHTML = template;
   updateCartCount();
 
-
   // if (callback) {
   //   callback(data);
   // }
@@ -104,10 +107,29 @@ export async function loadHeaderFooter() {
   const headerTemplate = await loadTemplate("../partials/header.html");
   const footerTemplate = await loadTemplate("../partials/footer.html");
 
-
   const headerElement = document.querySelector("#main-header");
   const footerElement = document.querySelector("#main-footer");
 
   renderWithTemplate(headerTemplate, headerElement);
   renderWithTemplate(footerTemplate, footerElement);
+}
+
+export function alertMessage(message, scroll = true) {
+  const main = qs("main");
+  const alert = document.createElement("div");
+  alert.classList.add("alert");
+  alert.innerHTML = `<p>${message}</p><span>&times;</span>`;
+  alert.addEventListener("click", function (e) {
+    if (e.target.tagName === "SPAN") {
+      main.removeChild(this);
+    }
+  });
+  main.prepend(alert);
+  if(scroll)
+    window.scrollTo(0,0);
+}
+
+export function removeAllAlerts() {
+  const alerts = document.querySelectorAll(".alert");
+  alerts.forEach((alert) => qs("main").removeChild(alert));
 }

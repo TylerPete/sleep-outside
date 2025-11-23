@@ -1,4 +1,4 @@
-import { setLocalStorage, getLocalStorage, updateCartCount, qs, loadHeaderFooter } from "./utils.mjs";
+import { setLocalStorage, getLocalStorage, updateCartCount, qs, loadHeaderFooter, alertMessage } from "./utils.mjs";
 
 export default class ProductDetails {
   constructor(productId, dataSource) {
@@ -30,12 +30,7 @@ export default class ProductDetails {
   addProductToCart() {
     const cartItems = getLocalStorage("so-cart") || [];
 
-    console.log("cartItems in localStorage: ");
-    console.log(cartItems);
-
-    const cartItemIds = cartItems.map(cartItem => {
-      return cartItem.Id;
-    })
+    const cartItemIds = cartItems.map(cartItem => cartItem.Id);
 
     if (!cartItemIds.includes(this.productId)) {
       cartItems.push(this.product);
@@ -56,6 +51,7 @@ export default class ProductDetails {
         cartIcon.classList.remove("cart-shake");
       }, 400);
     }
+    alertMessage(`${this.product.NameWithoutBrand} added to cart!`);
   }
 
   /**

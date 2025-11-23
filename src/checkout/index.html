@@ -18,7 +18,7 @@
 
     <main class="divider">
       <section class="products">
-        <h2>Review & Place your Order</h2>
+        <h2 class="title">Review & Place your Order</h2>
       </section>
 
       <form id="checkoutForm" method="POST" class="f-checkout">
@@ -36,7 +36,9 @@
             >Street Address <input type="text" name="street" required
           /></label>
           <label>City <input type="text" name="city" required /></label>
-          <label>State <input type="text" name="state" required /></label>
+          <label
+            >State <input type="text" name="state" maxlength="2" required
+          /></label>
           <label
             >Zip Code
             <input type="text" name="zip" inputmode="numeric" required

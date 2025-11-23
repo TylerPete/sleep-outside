@@ -552,11 +552,15 @@ main > h2 {
 }
 
 /* Checkout Form */
+.title {
+  text-align: center;
+}
+
 .f-checkout {
   max-width: 800px;
   width: 100%;
   margin: 2rem auto;
-  padding: 0rem 2rem;
+  padding: 0rem 1rem;
 
   #orderSummary {
     background-color: #f7f8fa;
@@ -626,4 +630,38 @@ main > h2 {
     padding: 1rem;
     margin: 1.3rem 0;
   }
+}
+
+/* Alert Styles */
+.alert {
+  padding: 0.8em;
+  background-color: var(--primary-color);
+  color: var(--dark-grey);
+  border: 1px solid var(--tertiary-color);
+  border-radius: 4px;
+  margin: 1rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alert p {
+  margin: 0;
+  padding: 0;
+  word-break: break-word;
+}
+
+.alert span {
+  cursor: pointer;
+  font-weight: bold;
+  padding-left: 1rem;
+  font-size: 1.2em;
+  flex-shrink: 0;
+}
+
+.alert span:hover {
+  color: white;
 }
