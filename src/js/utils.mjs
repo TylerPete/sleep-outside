@@ -92,9 +92,6 @@ export function renderWithTemplate(template, parentElement, clear = false) {
   parentElement.innerHTML = template;
   updateCartCount();
 
-  // if (callback) {
-  //   callback(data);
-  // }
 }
 
 export async function loadTemplate(path) {
@@ -112,6 +109,30 @@ export async function loadHeaderFooter() {
 
   renderWithTemplate(headerTemplate, headerElement);
   renderWithTemplate(footerTemplate, footerElement);
+
+const searchForm = headerElement.querySelector(".search form");
+  if (searchForm) {
+    searchForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const query = searchForm.querySelector("input").value;
+
+      const productListElement = document.querySelector(".product-list");
+
+      if (productListElement) {
+        // 1. Update the URL without reloading
+        const url = new URL(window.location);
+        url.searchParams.set("q", query);
+        url.searchParams.delete("category")
+        
+        window.history.pushState({}, "", url.toString());
+
+        const searchEvent = new CustomEvent("search-update", { detail: { query } });
+        window.dispatchEvent(searchEvent);
+      } else {
+        window.location.href = `/product_listing/index.html?q=${query}`;
+      }
+    });
+  }
 }
 
 export function alertMessage(message, scroll = true) {
