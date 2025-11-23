@@ -1,4 +1,4 @@
-import { renderListWithTemplate,  } from "./utils.mjs";
+import { renderListWithTemplate, alertMessage} from "./utils.mjs";
 
 function productCardTemplate(product) {
     const discountText = calculateDiscountPercentage(product.SuggestedRetailPrice, product.FinalPrice);
@@ -43,6 +43,10 @@ export default class ProductList {
     }
 
     renderList(list, clear = false) {
+        if (!list || list.length === 0) {
+            alertMessage("No products found. Try a different search term.");
+        return;
+        }
         renderListWithTemplate(productCardTemplate, this.listElement, list, "afterbegin", clear);
     }
 

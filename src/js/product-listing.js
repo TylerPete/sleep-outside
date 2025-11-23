@@ -5,16 +5,12 @@ import ProductList from "./ProductList.mjs";
 loadHeaderFooter();
 
 const category = getParam("category");
-
+const dataSource = new ExternalServices();
+const listElement = document.querySelector(".product-list");
 const titleElement = document.querySelector("h2");
 const categoryName = prettifySlug(category);
 
 titleElement.textContent = `Top Products for ${categoryName}`;
-
-const dataSource = new ExternalServices();
-
-const listElement = document.querySelector(".product-list");
-
 const myList = new ProductList(category, dataSource, listElement);
 
 myList.init();
