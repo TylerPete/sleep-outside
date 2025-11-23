@@ -30,12 +30,7 @@ export default class ProductDetails {
   addProductToCart() {
     const cartItems = getLocalStorage("so-cart") || [];
 
-    console.log("cartItems in localStorage: ");
-    console.log(cartItems);
-
-    const cartItemIds = cartItems.map(cartItem => {
-      return cartItem.Id;
-    })
+    const cartItemIds = cartItems.map(cartItem => cartItem.Id);
 
     if (!cartItemIds.includes(this.productId)) {
       cartItems.push(this.product);

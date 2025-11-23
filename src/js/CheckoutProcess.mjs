@@ -1,4 +1,4 @@
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, alertMessage, removeAllAlerts } from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
 
 const services = new ExternalServices();
@@ -80,7 +80,20 @@ export async function checkout(form) {
         setLocalStorage("so-cart", []);
         location.href = "./success.html";
     } catch (err) {
-        console.log(err);
+        removeAllAlerts()
+        if(err.message && typeof err.message === "object"){
+            for (let key in err.message){
+                if (typeof err.message[key] === "string"){
+                    alertMessage(err.message[key]);
+                }else if (Array.isArray(err.message[key])){
+                    err.message[key].array.forEach(msg => alertMessage(msg));
+                }
+            }
+        }else{
+            console.log(err);
+            alertMessage(err.message || "An unexpected error occurred during checkout.")
+        }
+        
     }
 
 }

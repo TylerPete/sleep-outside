@@ -627,3 +627,32 @@ main > h2 {
     margin: 1.3rem 0;
   }
 }
+
+/* Alert Styles */
+.alert {
+  padding: 0.8em;
+  background-color: var(--primary-color);
+  color: var(--dark-grey);
+  border: 1px solid var(--tertiary-color);
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alert p {
+  margin: 0;
+  padding: 0;
+}
+
+.alert span {
+  cursor: pointer;
+  font-weight: bold;
+  padding-left: 1rem;
+  font-size: 1.2em;
+}
+
+.alert span:hover {
+  color: white;
+}
