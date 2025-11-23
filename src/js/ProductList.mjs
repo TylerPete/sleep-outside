@@ -1,4 +1,4 @@
-import { renderListWithTemplate, alertMessage, qs} from "./utils.mjs";
+import { renderListWithTemplate, alertMessage,removeAllAlerts, qs} from "./utils.mjs";
 
 function productCardTemplate(product) {
     const discountText = calculateDiscountPercentage(product.SuggestedRetailPrice, product.FinalPrice);
@@ -42,10 +42,11 @@ export default class ProductList {
         } else {
             this.productList = await this.dataSource.getData(this.category);
         }
-        this.renderList(this.productList);
+        this.renderList(this.productList, true);
     }
 
     renderList(list, clear = false) {
+        removeAllAlerts();
         const sortContainer = qs(".sort-container");
 
         if (!list || list.length === 0) {

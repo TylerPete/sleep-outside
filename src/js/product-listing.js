@@ -31,3 +31,38 @@ const sortElement = qs("#sort-options");
 sortElement.addEventListener("change", (e) => {
   myList.sortList(e.target.value);
 });
+
+// Listen for search updates from the header
+window.addEventListener("search-update", (e) => {
+  const query = e.detail.query;
+  try {
+    titleElement.textContent = `Search Results for: "${query}"`;
+    myList.category = query;
+    myList.init(true);
+  } catch (error) {
+    console.error("Error handling search update:", error);
+  }
+});
+
+const categoryLinks = document.querySelectorAll(".category");
+categoryLinks.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    // 1. Extract the category from the link's URL
+    const href = link.href;
+    const url = new URL(href);
+    const newCategory = url.searchParams.get("category");
+
+    if (newCategory) {
+      const currentUrl = new URL(window.location);
+      currentUrl.searchParams.set("category", newCategory);
+      currentUrl.searchParams.delete("q");
+      window.history.pushState({}, "", currentUrl.toString());
+      titleElement.textContent = `Top Products for ${prettifySlug(newCategory)}`;
+
+      myList.category = newCategory;
+      myList.init(false);
+    }
+  });
+});
