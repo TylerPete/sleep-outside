@@ -1,4 +1,4 @@
-import { renderListWithTemplate, alertMessage} from "./utils.mjs";
+import { renderListWithTemplate, alertMessage, qs} from "./utils.mjs";
 
 function productCardTemplate(product) {
     const discountText = calculateDiscountPercentage(product.SuggestedRetailPrice, product.FinalPrice);
@@ -46,10 +46,22 @@ export default class ProductList {
     }
 
     renderList(list, clear = false) {
+        const sortContainer = qs(".sort-container");
+
         if (!list || list.length === 0) {
             alertMessage("No products found. Try a different search term.");
+            this.listElement.innerHTML = "";
+
+        if (sortContainer) {
+            sortContainer.classList.add("hide");
+        }
         return;
         }
+
+        if (sortContainer) {
+            sortContainer.classList.remove("hide");
+        }
+
         renderListWithTemplate(productCardTemplate, this.listElement, list, "afterbegin", clear);
     }
 
