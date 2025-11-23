@@ -1,4 +1,4 @@
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
 
 const services = new ExternalServices();
@@ -77,6 +77,8 @@ export async function checkout(form) {
     try {
         const response = await services.checkout(dataObj);
         console.log(response);
+        setLocalStorage("so-cart", []);
+        location.href = "./success.html";
     } catch (err) {
         console.log(err);
     }
