@@ -10,7 +10,7 @@
 ### Prerequisites
 
 - You must have Node installed to run the following commands.
-[WDD 330 Setup Environment](https://byui-cse.github.io/wdd330-ww-course/intro/) 
+[WDD 330 Setup Environment]([https://byui-cse.github.io/wdd330-ww-course/intro/](https://byui-cse.github.io/wdd330-ww-course/week01/team.html)) 
 
 ### Common Workflow Commands
 
