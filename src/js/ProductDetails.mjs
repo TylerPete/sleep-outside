@@ -1,4 +1,4 @@
-import { setLocalStorage, getLocalStorage, updateCartCount, qs, loadHeaderFooter, alertMessage } from "./utils.mjs";
+import { setLocalStorage, getLocalStorage, updateCartCount, qs, loadHeaderFooter, alertMessage, getParam, renderBreadcrumb } from "./utils.mjs";
 
 export default class ProductDetails {
   constructor(productId, dataSource) {
@@ -9,14 +9,20 @@ export default class ProductDetails {
 
   async init() {
     // Load dynamic header and footer templates
-    loadHeaderFooter();
-
+    await loadHeaderFooter();
 
     // use the datasource to get the details for the current product. findProductById will return a promise! use await or .then() to process it
     this.product = await this.dataSource.findProductById(this.productId);
-    
+
     //Set a baseline quantity of 1 for the item
     Object.assign(this.product, { Quantity: 1 });
+
+    // Render breadcrumb with product name after product is loaded
+    const category = getParam("category");
+    if (category && this.product) {
+      const productName = this.product.NameWithoutBrand || this.product.Name;
+      renderBreadcrumb(category, null, productName);
+    }
 
     // the product details are needed before rendering the HTML
     this.renderProductDetails();
