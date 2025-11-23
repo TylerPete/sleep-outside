@@ -116,7 +116,6 @@ const searchForm = headerElement.querySelector(".search form");
       e.preventDefault();
       const query = searchForm.querySelector("input").value;
 
-      // FIXED: Check for the product-list element instead of relying on the URL path
       const productListElement = document.querySelector(".product-list");
 
       if (productListElement) {

@@ -49,7 +49,6 @@ categoryLinks.forEach((link) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
 
-    // 1. Extract the category from the link's URL
     const href = link.href;
     const url = new URL(href);
     const newCategory = url.searchParams.get("category");
