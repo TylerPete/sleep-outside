@@ -112,7 +112,11 @@ export async function loadHeaderFooter() {
 
   const searchForm = headerElement.querySelector(".search form");
   if (searchForm) {
+    //print which form is being selected to the console for testing
+    console.log("Form being selected: ", searchForm.getAttribute("data-id"));
+
     searchForm.addEventListener("submit", (e) => {
+
       e.preventDefault();
       const query = searchForm.querySelector("input").value;
 

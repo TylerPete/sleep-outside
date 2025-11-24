@@ -1,6 +1,14 @@
-import { loadHeaderFooter, getParam, prettifySlug, qs, renderBreadcrumb } from "./utils.mjs";
+import { loadHeaderFooter, getParam, prettifySlug, qs, renderBreadcrumb, alertMessage } from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
 import ProductList from "./ProductList.mjs";
+
+const newsletterForm = document.querySelector("#newsletterRegistrationForm");
+newsletterForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  alertMessage("Subscribed to newsletter!");
+
+  document.querySelector("#emailInput").value = "";
+});
 
 // Load header and footer, then initialize products
 loadHeaderFooter().then(() => {
