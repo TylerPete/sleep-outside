@@ -1,14 +1,15 @@
-import { renderListWithTemplate, alertMessage,removeAllAlerts, qs} from "./utils.mjs";
+import { renderListWithTemplate, alertMessage, removeAllAlerts, qs } from "./utils.mjs";
 
-function productCardTemplate(product) {
+function productCardTemplate(product, category) {
     const discountText = calculateDiscountPercentage(product.SuggestedRetailPrice, product.FinalPrice);
     let discountBadgeHtml = "";
     if (discountText) {
         discountBadgeHtml = `<div class="discount-badge">${discountText}</div>`;
     }
 
+    const categoryParam = category ? `&category=${category}` : "";
     return `<li class="product-card">
-            <a href="/product_pages/?product=${product.Id}">
+            <a href="/product_pages/?product=${product.Id}${categoryParam}">
             ${discountBadgeHtml}
               <img src="${product.Images.PrimaryMedium}" alt="${product.Name}"/>
               <h3 class="card__brand">${product.Brand.Name}</h3>
@@ -53,35 +54,37 @@ export default class ProductList {
             alertMessage("No products found. Try a different search term.");
             this.listElement.innerHTML = "";
 
-        if (sortContainer) {
-            sortContainer.classList.add("hide");
-        }
-        return;
+            if (sortContainer) {
+                sortContainer.classList.add("hide");
+            }
+            return;
         }
 
         if (sortContainer) {
             sortContainer.classList.remove("hide");
         }
 
-        renderListWithTemplate(productCardTemplate, this.listElement, list, "afterbegin", clear);
+        // Create a wrapper function that includes category
+        const templateWithCategory = (product) => productCardTemplate(product, this.category);
+        renderListWithTemplate(templateWithCategory, this.listElement, list, "afterbegin", clear);
     }
 
     sortList(sortBy) {
         switch (sortBy) {
-        case "name-asc":
-            this.productList.sort((a, b) => a.Name.localeCompare(b.Name));
-            break;
-        case "name-desc":
-            this.productList.sort((a, b) => b.Name.localeCompare(a.Name));
-            break;
-        case "price-asc":
-            this.productList.sort((a, b) => a.FinalPrice - b.FinalPrice);
-            break;
-        case "price-desc":
-            this.productList.sort((a, b) => b.FinalPrice - a.FinalPrice);
-            break;
+            case "name-asc":
+                this.productList.sort((a, b) => a.Name.localeCompare(b.Name));
+                break;
+            case "name-desc":
+                this.productList.sort((a, b) => b.Name.localeCompare(a.Name));
+                break;
+            case "price-asc":
+                this.productList.sort((a, b) => a.FinalPrice - b.FinalPrice);
+                break;
+            case "price-desc":
+                this.productList.sort((a, b) => b.FinalPrice - a.FinalPrice);
+                break;
         }
 
-    this.renderList(this.productList, true);
-  }
+        this.renderList(this.productList, true);
+    }
 }
