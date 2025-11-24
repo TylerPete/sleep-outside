@@ -1,77 +1,74 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sleep Outside | Products</title>
-    <link rel="icon" type="image/png" href="/images/favicon.png" />
-    <link rel="stylesheet" href="../css/style.css" />
-    <script type="module" src="../js/product-listing.js"></script>
-  </head>
 
-  <body>
-    <header class="divider" id="main-header"></header>
-    <main class="divider">
-      <div class="hero">
-        <img
-          src="/images/banner-sm.jpg"
-          srcset="/images/banner-sm.jpg 500w, /images/banner.jpg"
-          alt="image of a high mountain lake"
-        />
-        <div class="logo logo--square">
-          <img src="/images/noun_Tent_2517.svg" alt="tent image for logo" />
-          <div>Sleep<span class="highlight">Outside</span></div>
-        </div>
-        <div class="mission">
-          <p>
-            Our mission is to provide you with everything you need to sleep
-            outside comfortably at an affordable price.
-          </p>
-        </div>
-      </div>
-      <div class="categories">
-        <a href="../product_listing/index.html?category=tents" class="category">
-          <img src="../images/category-tents.svg" alt="Tent category" />
-          <h3>Tents</h3>
-        </a>
-        <a
-          href="../product_listing/index.html?category=backpacks"
-          class="category"
-        >
-          <img src="../images/category-backpacks.svg" alt="Backpack category" />
-          <h3>Backpacks</h3>
-        </a>
-        <a
-          href="../product_listing/index.html?category=sleeping-bags"
-          class="category"
-        >
-          <img
-            src="../images/category-sleepingbags.svg"
-            alt="Sleeping Bag category"
-          />
-          <h3>Sleeping Bags</h3>
-        </a>
-        <a
-          href="../product_listing/index.html?category=hammocks"
-          class="category"
-        >
-          <img src="../images/category-hammocks.svg" alt="Hammocks Category" />
-          <h3>Hammocks</h3>
-        </a>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sleep Outside | Products</title>
+  <link rel="icon" type="image/png" href="/images/favicon.png" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <script type="module" src="../js/product-listing.js"></script>
+</head>
 
-      <h2 class="title-element">Top Products</h2>
-      <div class="sort-container">
-        <label for="sort-options">Sort by: </label>
-        <select id="sort-options" name="sort">
-          <option value="name-asc">Name A-Z</option>
-          <option value="name-desc">Name Z-A</option>
-          <option value="price-asc">Price Low-to-High</option>
-          <option value="price-desc">Price High-to-Low</option>
-        </select>
+<body>
+  <header class="divider" id="main-header"></header>
+  <main class="divider">
+    <div class="hero">
+      <img src="/images/banner-sm.jpg" srcset="/images/banner-sm.jpg 500w, /images/banner.jpg"
+        alt="image of a high mountain lake" />
+      <div class="logo logo--square">
+        <img src="/images/noun_Tent_2517.svg" alt="tent image for logo" />
+        <div>Sleep<span class="highlight">Outside</span></div>
       </div>
-      <ul class="product-list"></ul>
-    </main>
-    <footer id="main-footer"></footer>
-  </body>
+      <div class="mission">
+        <p>
+          Our mission is to provide you with everything you need to sleep
+          outside comfortably at an affordable price.
+        </p>
+      </div>
+    </div>
+    <div class="categories">
+      <a href="../product_listing/index.html?category=tents" class="category">
+        <img src="../images/category-tents.svg" alt="Tent category" />
+        <h3>Tents</h3>
+      </a>
+      <a href="../product_listing/index.html?category=backpacks" class="category">
+        <img src="../images/category-backpacks.svg" alt="Backpack category" />
+        <h3>Backpacks</h3>
+      </a>
+      <a href="../product_listing/index.html?category=sleeping-bags" class="category">
+        <img src="../images/category-sleepingbags.svg" alt="Sleeping Bag category" />
+        <h3>Sleeping Bags</h3>
+      </a>
+      <a href="../product_listing/index.html?category=hammocks" class="category">
+        <img src="../images/category-hammocks.svg" alt="Hammocks Category" />
+        <h3>Hammocks</h3>
+      </a>
+    </div>
+
+    <h2 class="title-element">Top Products</h2>
+    <div class="sort-container">
+      <label for="sort-options">Sort by: </label>
+      <select id="sort-options" name="sort">
+        <option value="name-asc">Name A-Z</option>
+        <option value="name-desc">Name Z-A</option>
+        <option value="price-asc">Price Low-to-High</option>
+        <option value="price-desc">Price High-to-Low</option>
+      </select>
+    </div>
+    <ul class="product-list"></ul>
+
+    <form id="newsletterRegistrationForm">
+      <h4>Stay in the Loop!</h4>
+      <fieldset>
+        <legend>Get outdoor tips, gear deals, and updates.</legend>
+        <label for="emailInput">Email: <input type="email" name="email" id="emailInput" required></label>
+        <button type="submit" id="newsletterSubscribeButton">Subscribe</button>
+      </fieldset>
+    </form>
+
+  </main>
+  <footer id="main-footer"></footer>
+</body>
+
 </html>

@@ -90,7 +90,7 @@ p {
   margin-top: -1.3em;
 }
 
-.logo--square > div {
+.logo--square>div {
   margin-top: -1.7em;
 }
 
@@ -386,7 +386,7 @@ footer {
   padding: 0.2rem 0.5rem;
 }
 
-main > h2 {
+main>h2 {
   text-align: center;
   font-size: min(2.3rem, 5vw);
   color: var(--tertiary-color);
@@ -637,10 +637,12 @@ main > h2 {
     opacity: 0;
     transform: translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
-    max-height: 200px; /* Big enough to fit text, small enough to animate quickly */
+    max-height: 200px;
+    /* Big enough to fit text, small enough to animate quickly */
     margin-top: 1rem;
     margin-bottom: 1rem;
     padding-top: 0.8em;
@@ -729,13 +731,49 @@ main > h2 {
   header {
     flex-wrap: wrap;
   }
+
   .search {
     order: 3;
     width: 100%;
     margin-top: 0.5rem;
     padding: 0;
   }
+
   .logo {
     width: auto;
+  }
+}
+
+#newsletterRegistrationForm {
+  margin: 1rem;
+  border: 2px solid var(--dark-grey);
+  padding: 0.5rem;
+
+  h4 {
+    margin: 0.5rem 0;
+  }
+
+  fieldset {
+
+    legend {
+      margin: 0.5rem 0;
+    }
+
+    label {
+      margin: 8px;
+
+      input {
+        width: 95%;
+        margin: 10px;
+        line-height: 44px;
+        font-size: 20px;
+        padding: 0 0.3rem;
+      }
+    }
+
+    button {
+      width: 95%;
+      margin: 10px;
+    }
   }
 }

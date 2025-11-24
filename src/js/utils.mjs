@@ -110,7 +110,7 @@ export async function loadHeaderFooter() {
   renderWithTemplate(headerTemplate, headerElement);
   renderWithTemplate(footerTemplate, footerElement);
 
-const searchForm = headerElement.querySelector(".search form");
+  const searchForm = headerElement.querySelector(".search form");
   if (searchForm) {
     searchForm.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -123,7 +123,7 @@ const searchForm = headerElement.querySelector(".search form");
         const url = new URL(window.location);
         url.searchParams.set("q", query);
         url.searchParams.delete("category")
-        
+
         window.history.pushState({}, "", url.toString());
 
         const searchEvent = new CustomEvent("search-update", { detail: { query } });
@@ -146,8 +146,8 @@ export function alertMessage(message, scroll = true) {
     }
   });
   main.prepend(alert);
-  if(scroll)
-    window.scrollTo(0,0);
+  if (scroll)
+    window.scrollTo(0, 0);
 }
 
 export function removeAllAlerts() {
