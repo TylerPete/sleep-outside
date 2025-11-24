@@ -41,15 +41,15 @@ export default class ExternalServices {
   // NEW: Fetch all categories and filter client-side
   async searchProducts(query) {
     const categories = ["tents", "backpacks", "sleeping-bags", "hammocks"];
-    
+
     // Fetch all 4 categories in parallel
     const promises = categories.map(category => this.getData(category));
-    
+
     try {
       const results = await Promise.all(promises);
       // results is an array of 4 arrays. Flatten them into one list.
       const allProducts = results.flat();
-      
+
       const lowercaseQuery = query.toLowerCase();
 
       // This filter: Can check Name, Brand, and maybe Description
@@ -57,7 +57,7 @@ export default class ExternalServices {
         const nameMatch = item.Name && item.Name.toLowerCase().includes(lowercaseQuery);
         const brandMatch = item.Brand && item.Brand.Name && item.Brand.Name.toLowerCase().includes(lowercaseQuery);
         // const descMatch = item.DescriptionHtmlSimple && item.DescriptionHtmlSimple.toLowerCase().includes(lowercaseQuery);
-        
+
         return nameMatch || brandMatch;
       });
 
